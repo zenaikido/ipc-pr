@@ -174,7 +174,7 @@ $data_all = mysqli_fetch_array($sql_all);
                         if ($data_mpr['mpr_status'] == 1) {; ?>
                             <a href="?page=pending-material-purchase-request"><button type="button" class="btn btn-default fa fa-mail-reply"> Back</button></a>&nbsp;&nbsp;&nbsp;
                         <?php } else { ?>
-                            <a href="?page=approved-of-material-purchase-request"><button type="button" class="btn btn-default fa fa-mail-reply"> Back</button></a>&nbsp;&nbsp;&nbsp;
+                            <a href="?page=rejected-of-mpr"><button type="button" class="btn btn-default fa fa-mail-reply"> Back</button></a>&nbsp;&nbsp;&nbsp;
                         <?php }; ?>
                         <button type="submit" class="btn btn-primary">Apply </button>
                     </div>

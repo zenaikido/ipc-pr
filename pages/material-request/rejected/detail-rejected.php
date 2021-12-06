@@ -74,7 +74,7 @@ $data_all = mysqli_fetch_array($sql_all);
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label">Status</label>
                     <div class="col-sm-5">
-                        <i class="form-control font-weight-bold" readonly><?= $dedt['reason_rejected']; ?></i>
+                        <i class="form-control font-weight-bold" readonly>Rejected !!! <?= $dedt['reason_rejected']; ?></i>
                         <br>
                     </div>
                 </div>
@@ -164,7 +164,7 @@ $data_all = mysqli_fetch_array($sql_all);
                         if ($data_mpr['mpr_status'] == 1) {; ?>
                             <a href="?page=pending-material-purchase-request"><button type="button" class="btn btn-default fa fa-mail-reply"> Back</button></a>&nbsp;&nbsp;&nbsp;
                         <?php } else { ?>
-                            <a href="?page=approved-of-material-purchase-request"><button type="button" class="btn btn-default fa fa-mail-reply"> Back</button></a>&nbsp;&nbsp;&nbsp;
+                            <a href="?page=rejected-of-mpr"><button type="button" class="btn btn-default fa fa-mail-reply"> Back</button></a>&nbsp;&nbsp;&nbsp;
                         <?php }; ?>
                         <?php if ($_SESSION['access'] != "View") { ?>
                             <a href="?page=page-edit-rejected-of-material-purchase-request&no=<?= $data_mpr['mr_no'] ?>"> <button type="submit" class="btn btn-primary fa fa-edit"> Edit</button></a>&nbsp;&nbsp;&nbsp;

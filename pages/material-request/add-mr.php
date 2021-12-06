@@ -85,7 +85,7 @@
                 <div class=" form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
-                        <a href="?page=material-purchase-request"><button type="button" class="btn btn-default">Cancel</button></a>&nbsp;&nbsp;
+                        <a href="?page=approved-of-material-purchase-request"><button type="button" class="btn btn-default">Cancel</button></a>&nbsp;&nbsp;
                         <button type="submit" class="btn btn-primary">Apply</button>
                     </div>
                 </div>
