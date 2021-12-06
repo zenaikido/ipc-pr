@@ -4,7 +4,7 @@ $mrno = $_GET['no'];
 $id_dept = $_POST['id_department'];
 $usr = $_SESSION['fullname'];
 
-$query1 = mysqli_query($link, "UPDATE mr SET id_department='$id_dept', edited_by='$usr', edited_at=now(), deleted_status=0 WHERE mr_no='$mrno'");
+$query1 = mysqli_query($link, "UPDATE mr SET id_department='$id_dept', edited_by='$usr', edited_at=now(), deleted_status=0, mpr_status=1 WHERE mr_no='$mrno'");
 
 // tujuannya adalah agar data bisa di edit, jadi dihapus dlu yg ada lalu di insert sama data dibawah
 $sql = mysqli_query($link, "DELETE FROM mr_detail WHERE mr_no='$mrno'");

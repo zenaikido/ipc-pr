@@ -176,7 +176,7 @@ $data_all = mysqli_fetch_array($sql_all);
                         <?php } else { ?>
                             <a href="?page=approved-of-material-purchase-request"><button type="button" class="btn btn-default fa fa-mail-reply"> Back</button></a>&nbsp;&nbsp;&nbsp;
                         <?php }; ?>
-                        <button type="submit" class="btn btn-primary">Apply Now</button>
+                        <button type="submit" class="btn btn-primary">Apply </button>
                     </div>
                 </div>
             </form>

@@ -144,11 +144,11 @@ switch ($page) {
     case 'detail-rejected-material-purchase-request':
         include "material-request/rejected/detail-rejected.php";
         break;
+    case 'page-edit-rejected-of-material-purchase-request':
+        include "material-request/rejected/page-edit-rejected.php";
+        break;
     case 'rejected-of-material-purchase-request':
         include "material-request/rejected/process-reject.php";
-        break;
-    case 'page-edit-rejected-of-material-purchase-request':
-        include "material-request/rejected/edit-rejected.php";
         break;
     case 'edit-rejected-of-material-purchase-request':
         include "material-request/rejected/edit-rejected.php";
