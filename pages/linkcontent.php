@@ -158,6 +158,9 @@ switch ($page) {
     case 'report-mpr-approved':
         include "report/mpr-approved/index.php";
         break;
+    case 'result':
+        include "report/mpr-approved/index.php";
+        break;
     case 'result-report-mpr-approved':
         include "report/mpr-approved/result.php";
         break;
