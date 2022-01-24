@@ -19,7 +19,7 @@
         <div class="box-header with-border">
             <div class="form-group">
 
-            </div>d
+            </div>
             <input class="form-group" type="date" name="dari">
             <a href="" class="btn btn-success"><i class="fa fa-search"></i> Search</a>
 
