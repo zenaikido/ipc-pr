@@ -154,6 +154,22 @@ switch ($page) {
         include "material-request/rejected/edit-rejected.php";
         break;
 
+        // REPORT
+    case 'report-mpr-approved':
+        include "report/mpr-approved/index.php";
+        break;
+    case 'result-report-mpr-approved':
+        include "report/mpr-approved/result.php";
+        break;
+
+    case 'result-report-mpr-rejected':
+        include "report/mpr-rejected/index.php";
+        break;
+    case 'result-report-mpr-rejected':
+        include "report/mpr-rejected/result.php";
+        break;
+
+        // USER MANAGEMENT
     case 'user-management':
         include "users/index.php";
         break;
@@ -173,7 +189,7 @@ switch ($page) {
         include "users/signout.php";
         break;
 
-
+        // RESTORE
     case 'restore-category-cost':
         include "restore/category-cost/index.php";
         break;

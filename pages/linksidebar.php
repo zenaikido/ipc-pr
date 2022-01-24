@@ -55,6 +55,20 @@
                 <li><a href="?page=rejected-of-mpr"><i class="fa fa-times-circle"></i> Rejected <span class="label label-primary pull-right"><?= $row_reject; ?></span></a></li>
             </ul>
         </li>
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-print"></i> <span>Report</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="?page=report-mpr-approved"><i class="fa fa-circle-o"></i> MPR Approved</a></li>
+                <li><a href="?page=report-mpr-rejected"><i class="fa fa-circle-o"></i> MPR Rejected <span class="label label-primary pull-right"></span></a></li>
+            </ul>
+        </li>
+
         <?php
         if ($_SESSION['access'] != "View" && $_SESSION['access'] != "Leader") {
         ?>
