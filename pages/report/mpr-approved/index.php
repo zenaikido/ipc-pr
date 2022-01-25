@@ -13,8 +13,8 @@
 <section class="content">
     <div class="box">
         <div class="box-body">
-            <form action="?page=result" method="post" name="postform">
-                <table border="0">
+            <form action="?page=result" method="POST" name="postform">
+                <table border="0" class="table table-bordered table-striped">
                     <tr>
                         <td width="125"><b>From</b></td>
                         <td colspan="2" width="190">: <input type="date" name="tanggal_awal" size="16" /> </td>
@@ -24,6 +24,7 @@
                     </tr>
                 </table>
             </form><br />
+
             <p>
                 <?php
                 //proses jika sudah klik tombol pencarian data
@@ -42,7 +43,7 @@
                     } else {
                     ?>
                         <i><b>Informasi : </b> Hasil pencarian data berdasarkan periode Tanggal
-                            <b><?php echo $_POST['tanggal_awal'] ?></b> s/d <b><?php echo $_POST['tanggal_akhir'] ?></b>
+                            <b><?= $_POST['tanggal_awal'] ?></b> s/d <b><?= $_POST['tanggal_akhir'] ?></b>
                         </i>
                     <?php
                         global $link;
@@ -66,62 +67,47 @@
                     }
                     ?>
             </p>
-            <div class="table-responsive">
-                <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th style="text-align: center;">NO</th>
-                                <th style="text-align: center;">MR No</th>
-                                <th style="text-align: center;">DEPARTMENT</th>
-                                <th style="text-align: center;">SUPPLIER</th>
-                                <th style="text-align: center;">PRODUCT</th>
-                                <th style="text-align: center;">QTY</th>
-                                <th style="text-align: center;">PRICE/UNIT</th>
-                                <th style="text-align: center;">TOTAL PRICE</th>
-                                <th style="text-align: center;">REMARKS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $i = 1;
-                            while ($data = mysqli_fetch_array($query)) {
-                            ?>
-                                <tr>
-                                    <td align="center" height="30"><?= $i++ ?></td>
-                                    <td align="center"><?= $data['mr_no']; ?></td>
-                                    <td align="center"><?= $data['department']; ?></td>
-                                    <td><?= $data['supplier']; ?></td>
-                                    <td><?= $data['product']; ?></td>
-                                    <td><?= number_format($data['qty'], 0, ".", ","); ?> <?= $data['unit']; ?></td>
-                                    <td><?= $data['currency_code']; ?> <?= number_format($data['unit_price'], 0, ".", ",") ?></td>
-                                    <td><?= $data['currency_code']; ?> <?= number_format($data['total'], 2, ".", ","); ?></td>
-                                    <td><?= strtoupper($data['remarks']); ?></td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                            <tr>
-                                <td colspan="9" align="center">
-                                    <?php
-                                    if (mysqli_num_rows($query) == 0) {
-                                        echo "<font color=red><blink>Data not found!</blink></font>";
-                                    }
-                                    ?>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <table id="example3" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">NO</th>
+                        <th style="text-align: center;">MR No</th>
+                        <th style="text-align: center;">DEPARTMENT</th>
+                        <th style="text-align: center;">SUPPLIER</th>
+                        <th style="text-align: center;">PRODUCT</th>
+                        <th style="text-align: center;">QTY</th>
+                        <th style="text-align: center;">PRICE/UNIT</th>
+                        <th style="text-align: center;">TOTAL PRICE</th>
+                        <th style="text-align: center;">REMARKS</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <?php
+                    $i = 1;
+                    while ($data = mysqli_fetch_array($query)) {
+                    ?>
+                        <tr>
+                            <td align="center" height="30"><?= $i++ ?></td>
+                            <td align="center"><?= $data['mr_no']; ?></td>
+                            <td align="center"><?= $data['department']; ?></td>
+                            <td><?= $data['supplier']; ?></td>
+                            <td><?= $data['product']; ?></td>
+                            <td><?= number_format($data['qty'], 0, ".", ","); ?> <?= $data['unit']; ?></td>
+                            <td><?= $data['currency_code']; ?> <?= number_format($data['unit_price'], 0, ".", ",") ?></td>
+                            <td><?= $data['currency_code']; ?> <?= number_format($data['total'], 2, ".", ","); ?></td>
+                            <td><?= strtoupper($data['remarks']); ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+
+
         <?php
                 } else {
                     unset($_POST['pencarian']);
                 }
         ?>
-
-        <div class="box-footer">
-        </div>
 
         </div>
     </div>

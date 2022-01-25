@@ -11,13 +11,18 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 
+<!-- <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script> -->
 <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+<script src="bower_components/datatables.net/dataTables.buttons.min.js"></script>
+<script src="bower_components/datatables.net/jszip.min.js"></script>
+<script src="bower_components/datatables.net/pdfmake.min.js"></script>
+<script src="bower_components/datatables.net/vfs_fonts.js"></script>
+<script src="bower_components/datatables.net/buttons.html5.min.js"></script>
+<script src="bower_components/datatables.net/buttons.print.min.js"></script>
+
 <!-- Select2 -->
 <script src="bower_components/select2/dist/js/select2.full.min.js"></script>
-
-<script src="bower_components/autoNumeric/autoNumeric.min.jss"></script>
-<!-- <script src="http://www.ilmuwebsite.com/tutorial/js/cleave/cleave.min.js"></script> -->
 
 <script src="bower_components/jquery-popbox/js/popbox.js" defer></script>

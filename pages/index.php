@@ -271,10 +271,17 @@ $_SESSION['start_time'] = time();
             })
         })
     </script>
+
     <script>
         $(document).ready(function() {
-            $('.sidebar-menu').tree()
-        })
+            $('#example3').DataTable({
+                'searching': false,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
     </script>
 
     <script>
@@ -283,13 +290,9 @@ $_SESSION['start_time'] = time();
             $('.select2').select2()
         })
     </script>
-
-    <script src="http://www.ilmuwebsite.com/tutorial/js/cleave/cleave.min.js"></script>
-    <script type="text/javascript">
-        var cleave = new Cleave('.input-element', {
-            numeral: true,
-            numeralDecimalMark: 'thousand',
-            delimiter: ','
+    <script>
+        $(document).ready(function() {
+            $('#myTable22').DataTable();
         });
     </script>
 
