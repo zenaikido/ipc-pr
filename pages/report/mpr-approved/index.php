@@ -1,4 +1,3 @@
-<!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
         PRINT REPORT
@@ -10,14 +9,11 @@
         <li class="active">MPR Approved</li>
     </ol>
 </section>
+
 <section class="content">
-
-    <!-- Default box -->
     <div class="box">
-
         <div class="box-body">
             <form action="?page=result" method="post" name="postform">
-
                 <table border="0">
                     <tr>
                         <td width="125"><b>From</b></td>
@@ -66,14 +62,13 @@
                         INNER JOIN master_unit i
                         ON g.id_master_unit=i.id_unit 
                         WHERE req_date BETWEEN '$tanggal_awal' AND '$tanggal_akhir' AND mpr_status=0 
-                        ORDER BY a.mr_no ASC");
+                        ORDER BY a.mr_no DESC");
                     }
                     ?>
             </p>
             <div class="table-responsive">
                 <div class="table-responsive">
                     <table id="example1" class="table table-bordered table-striped">
-                        <!-- <table width="1100" border="0" align="center" cellpadding="0" cellspacing="0"> -->
                         <thead>
                             <tr>
                                 <th style="text-align: center;">NO</th>
@@ -90,19 +85,18 @@
                         <tbody>
                             <?php
                             $i = 1;
-                            //menampilkan pencarian data
                             while ($data = mysqli_fetch_array($query)) {
                             ?>
                                 <tr>
                                     <td align="center" height="30"><?= $i++ ?></td>
                                     <td align="center"><?= $data['mr_no']; ?></td>
                                     <td align="center"><?= $data['department']; ?></td>
-                                    <td align="center"><?= $data['supplier']; ?></td>
-                                    <td align="center"><?= $data['product']; ?></td>
+                                    <td><?= $data['supplier']; ?></td>
+                                    <td><?= $data['product']; ?></td>
                                     <td><?= number_format($data['qty'], 0, ".", ","); ?> <?= $data['unit']; ?></td>
                                     <td><?= $data['currency_code']; ?> <?= number_format($data['unit_price'], 0, ".", ",") ?></td>
                                     <td><?= $data['currency_code']; ?> <?= number_format($data['total'], 2, ".", ","); ?></td>
-                                    <td align="center"><?= strtoupper($data['remarks']); ?></td>
+                                    <td><?= strtoupper($data['remarks']); ?></td>
                                 </tr>
                             <?php
                             }
@@ -110,7 +104,6 @@
                             <tr>
                                 <td colspan="9" align="center">
                                     <?php
-                                    //jika pencarian data tidak ditemukan
                                     if (mysqli_num_rows($query) == 0) {
                                         echo "<font color=red><blink>Data not found!</blink></font>";
                                     }
@@ -127,9 +120,10 @@
                 }
         ?>
 
-
         <div class="box-footer">
         </div>
 
         </div>
+    </div>
+
 </section>
