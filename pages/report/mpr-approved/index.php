@@ -77,14 +77,14 @@
                         <thead>
                             <tr>
                                 <th style="text-align: center;">NO</th>
-                                <th>MR No</th>
-                                <th>DEPARTMENT</th>
-                                <th>SUPPLIER</th>
-                                <th>PRODUCT</th>
-                                <th>QTY</th>
-                                <th>PRICE/UNIT</th>
-                                <th>TOTAL PRICE</th>
-                                <th>REMARKS</th>
+                                <th style="text-align: center;">MR No</th>
+                                <th style="text-align: center;">DEPARTMENT</th>
+                                <th style="text-align: center;">SUPPLIER</th>
+                                <th style="text-align: center;">PRODUCT</th>
+                                <th style="text-align: center;">QTY</th>
+                                <th style="text-align: center;">PRICE/UNIT</th>
+                                <th style="text-align: center;">TOTAL PRICE</th>
+                                <th style="text-align: center;">REMARKS</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -99,9 +99,9 @@
                                     <td align="center"><?= $data['department']; ?></td>
                                     <td align="center"><?= $data['supplier']; ?></td>
                                     <td align="center"><?= $data['product']; ?></td>
-                                    <td align="center"><?= number_format($data['qty'], 0, ".", ","); ?> <?= $data['unit']; ?></td>
-                                    <td align="center"><?= $data['currency_code']; ?> <?= number_format($data['unit_price'], 0, ".", ",") ?></td>
-                                    <td align="center"><?= $data['currency_code']; ?> <?= number_format($data['total'], 2, ".", ","); ?></td>
+                                    <td><?= number_format($data['qty'], 0, ".", ","); ?> <?= $data['unit']; ?></td>
+                                    <td><?= $data['currency_code']; ?> <?= number_format($data['unit_price'], 0, ".", ",") ?></td>
+                                    <td><?= $data['currency_code']; ?> <?= number_format($data['total'], 2, ".", ","); ?></td>
                                     <td align="center"><?= strtoupper($data['remarks']); ?></td>
                                 </tr>
                             <?php
