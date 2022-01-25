@@ -40,64 +40,96 @@
                 ?>
                         <script language="JavaScript">
                             alert('Tanggal Awal dan Tanggal Akhir Harap di Isi!');
-                            document.location = 'index.php';
+                            document.location = '?page=report-mpr-approved';
                         </script>
                     <?php
                     } else {
-                    ?><i><b>Informasi : </b> Hasil pencarian data berdasarkan periode Tanggal <b><?php echo $_POST['tanggal_awal'] ?></b> s/d <b><?php echo $_POST['tanggal_akhir'] ?></b></i>
+                    ?>
+                        <i><b>Informasi : </b> Hasil pencarian data berdasarkan periode Tanggal
+                            <b><?php echo $_POST['tanggal_awal'] ?></b> s/d <b><?php echo $_POST['tanggal_akhir'] ?></b>
+                        </i>
                     <?php
                         global $link;
-                        $query = mysqli_query($link, "SELECT * FROM mr WHERE tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir'");
+                        $query = mysqli_query($link, "SELECT * FROM mr_detail a                    
+                        INNER JOIN master_department c
+                        ON a.id_department=c.id_department
+                        INNER JOIN master_supplier d
+                        ON a.id_supplier=d.id_supplier
+                        INNER JOIN master_category_item e
+                        ON a.id_category_item=e.id_category_item
+                        INNER JOIN master_category_cost f
+                        ON a.id_category_cost=f.id_category_cost
+                        INNER JOIN master_product g
+                        ON a.id_product=g.id_product
+                        INNER JOIN mr h
+                        ON a.mr_no=h.mr_no
+                        INNER JOIN master_unit i
+                        ON g.id_master_unit=i.id_unit 
+                        WHERE req_date BETWEEN '$tanggal_awal' AND '$tanggal_akhir' AND mpr_status=0 
+                        ORDER BY a.mr_no ASC");
                     }
                     ?>
             </p>
-            <table width="1100" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr bgcolor="#FF6600">
-                    <th width="10" height="40">ID</td>
-                    <th width="60">NIP</td>
-                    <th width="70">Nama</td>
-                    <th width="60">Jenis Kelamin</td>
-                    <th width="170">Tanggal Masuk</td>
-                    <th width="70">Status</td>
-                </tr>
-                <?php
-                    $i = 1;
-                    //menampilkan pencarian data
-                    while ($row = mysqli_fetch_array($query)) {
-                ?>
-                    <tr>
-                        <td align="center" height="30"><?= $i++ ?></td>
-                        <td align="center"><?php echo $row['mr_no']; ?></td>
-                        <td align="center"><?php echo $row['reason_rejected']; ?></td>
-                        <td align="center"><?php echo $row['mpr_status']; ?></td>
-                        <td align="center"><?php echo $row['approved_by']; ?></td>
-                        <td align="center"><?php echo $row['edited_by']; ?></td>
-                    </tr>
-                <?php
-                    }
-                ?>
-                <tr>
-                    <td colspan="4" align="center">
-                        <?php
-                        //jika pencarian data tidak ditemukan
-                        if (mysqli_num_rows($query) == 0) {
-                            echo "<font color=red><blink>Pencarian data tidak ditemukan!</blink></font>";
-                        }
-                        ?>
-                    </td>
-                </tr>
-            </table>
+            <div class="table-responsive">
+                <div class="table-responsive">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <!-- <table width="1100" border="0" align="center" cellpadding="0" cellspacing="0"> -->
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">NO</th>
+                                <th>MR No</th>
+                                <th>DEPARTMENT</th>
+                                <th>SUPPLIER</th>
+                                <th>PRODUCT</th>
+                                <th>QTY</th>
+                                <th>PRICE/UNIT</th>
+                                <th>TOTAL PRICE</th>
+                                <th>REMARKS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $i = 1;
+                            //menampilkan pencarian data
+                            while ($data = mysqli_fetch_array($query)) {
+                            ?>
+                                <tr>
+                                    <td align="center" height="30"><?= $i++ ?></td>
+                                    <td align="center"><?= $data['mr_no']; ?></td>
+                                    <td align="center"><?= $data['department']; ?></td>
+                                    <td align="center"><?= $data['supplier']; ?></td>
+                                    <td align="center"><?= $data['product']; ?></td>
+                                    <td align="center"><?= number_format($data['qty'], 0, ".", ","); ?> <?= $data['unit']; ?></td>
+                                    <td align="center"><?= $data['currency_code']; ?> <?= number_format($data['unit_price'], 0, ".", ",") ?></td>
+                                    <td align="center"><?= $data['currency_code']; ?> <?= number_format($data['total'], 2, ".", ","); ?></td>
+                                    <td align="center"><?= strtoupper($data['remarks']); ?></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                            <tr>
+                                <td colspan="9" align="center">
+                                    <?php
+                                    //jika pencarian data tidak ditemukan
+                                    if (mysqli_num_rows($query) == 0) {
+                                        echo "<font color=red><blink>Data not found!</blink></font>";
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         <?php
                 } else {
                     unset($_POST['pencarian']);
                 }
         ?>
 
-        <iframe width=174 height=189 name="gToday:normal:calender/normal.js" id="gToday:normal:calender/normal.js" src="calender/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; top:-500px; left:-500px;"></iframe>
-        </div>
 
         <div class="box-footer">
         </div>
 
-    </div>
+        </div>
 </section>

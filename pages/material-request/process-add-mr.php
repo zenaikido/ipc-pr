@@ -5,8 +5,8 @@ $id_dept = $_POST['id_department'];
 $mpr_status = 1;
 $usr = $_SESSION['fullname'];
 
-$sql = mysqli_query($link, "INSERT INTO mr (mr_no, id_department, mpr_status, created_by, created_at, deleted_status) 
-									VALUES ('$mrno', '$id_dept', '$mpr_status', '$usr', now(),'0')");
+$sql = mysqli_query($link, "INSERT INTO mr (req_date, mr_no, id_department, mpr_status, created_by, created_at, deleted_status) 
+									VALUES (now(), '$mrno', '$id_dept', '$mpr_status', '$usr', now(),'0')");
 
 $supp = $_POST['supplier'];
 $item = $_POST['category_item'];
